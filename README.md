@@ -29,10 +29,11 @@ Shopping list for a production‑ready Passbolt server:
 ## Installation (Standard Steps)
 
 ### 1. Grab the Passbolt Setup Files
-
+```
 curl -LO "https://download.passbolt.com/ce/docker/docker-compose-ce.yaml"
 curl -LO "https://github.com/passbolt/passbolt_docker/releases/latest/download/docker-compose-ce-SHA512SUM.txt"
 sha512sum -c docker-compose-ce-SHA512SUM.txt && echo "Checksum OK" || (echo "Bad checksum. Aborting" && rm -f docker-compose-ce.yaml)
+```
 
 ### 2. Tell Passbolt About Your Team
 
@@ -50,33 +51,39 @@ sha512sum -c docker-compose-ce-SHA512SUM.txt && echo "Checksum OK" || (echo "Bad
 Note: We'll replace the SMTP details with Mailtrap values in the email section below.
 
 ### 3. Start Your Password Manager
-
+```
 docker compose -f docker-compose-ce.yaml up -d
+```
 
 ### 4. Create Your Admin Account
-
+```
 docker compose -f docker-compose-ce.yaml exec passbolt su -m -c "/usr/share/php/passbolt/bin/cake passbolt register_user -u admin@your-domain.com -f FirstName -l LastName -r admin" -s /bin/sh www-data
+```
 
 Important: Save the unique registration link – you'll use it to complete the admin setup in your browser.
 
 ### 5. Lock It Down with HTTPS (SSL)
 
 Obtain a certificate (e.g., using certbot):
-
+```
 sudo apt install certbot
 sudo certbot certonly --standalone -d passbolt.yourcompany.com
+```
 
 Get a free Let's Encrypt certificate, then add these volumes to your docker-compose-ce.yaml:
-yaml
 
+```
 volumes:
   - /etc/letsencrypt/live/your-domain.com/fullchain.pem:/etc/ssl/certs/certificate.crt:ro
   - /etc/letsencrypt/live/your-domain.com/privkey.pem:/etc/ssl/certs/certificate.key:ro
 ports:
   - "80:80"
   - "443:443"
+```
 
 ### Set permissions and restart:
 
+```
 sudo chmod 644 /etc/letsencrypt/live/yourdomain.com/fullchain.pem /etc/letsencrypt/live/yourdomain.com/privkey.pem
 docker compose -f docker-compose-ce.yaml up -d
+```
