@@ -36,7 +36,6 @@ sha512sum -c docker-compose-ce-SHA512SUM.txt && echo "Checksum OK" || (echo "Bad
 
 ### 2. Tell Passbolt About Your Team
 
-Edit docker-compose-ce.yaml – update these environment variables:
 |Variable	| Description	| Example
 |APP_FULL_BASE_URL	| Public access URL	| https://passbolt.yourcompany.com
 |EMAIL_DEFAULT_FROM_NAME	| Sender name on emails	| YourCompany Passbolt
