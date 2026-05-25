@@ -36,16 +36,16 @@ sha512sum -c docker-compose-ce-SHA512SUM.txt && echo "Checksum OK" || (echo "Bad
 
 ### 2. Tell Passbolt About Your Team
 
-|Variable	| Description	| Example |
+| Variable	| Description	| Example |
 | -------- | -------- | -------- |
-|APP_FULL_BASE_URL	| Public access URL	| https://passbolt.yourcompany.com
-|EMAIL_DEFAULT_FROM_NAME	| Sender name on emails	| YourCompany Passbolt
-|EMAIL_DEFAULT_FROM	| Sender email	| passbolt@yourcompany.com
-|EMAIL_TRANSPORT_DEFAULT_HOST	| SMTP host	| live.smtp.mailtrap.io
-|EMAIL_TRANSPORT_DEFAULT_PORT	| SMTP port	| 587
-|EMAIL_TRANSPORT_DEFAULT_USERNAME	| SMTP username	| (from Mailtrap)
-|EMAIL_TRANSPORT_DEFAULT_PASSWORD	| SMTP password	| (from Mailtrap)
-|EMAIL_TRANSPORT_DEFAULT_TLS	| Enable TLS	| true
+| APP_FULL_BASE_URL	| Public access URL	| https://passbolt.yourcompany.com
+| EMAIL_DEFAULT_FROM_NAME	| Sender name on emails	| YourCompany Passbolt
+| EMAIL_DEFAULT_FROM	| Sender email	| passbolt@yourcompany.com
+| EMAIL_TRANSPORT_DEFAULT_HOST	| SMTP host	| live.smtp.mailtrap.io
+| EMAIL_TRANSPORT_DEFAULT_PORT	| SMTP port	| 587
+| EMAIL_TRANSPORT_DEFAULT_USERNAME	| SMTP username	| (from Mailtrap)
+| EMAIL_TRANSPORT_DEFAULT_PASSWORD	| SMTP password	| (from Mailtrap)
+| EMAIL_TRANSPORT_DEFAULT_TLS	| Enable TLS	| true
 
 Note: We'll replace the SMTP details with Mailtrap values in the email section below.
 
