@@ -36,7 +36,8 @@ sha512sum -c docker-compose-ce-SHA512SUM.txt && echo "Checksum OK" || (echo "Bad
 
 ### 2. Tell Passbolt About Your Team
 
-|Variable	| Description	| Example
+|Variable	| Description	| Example |
+| -------- | -------- | -------- |
 |APP_FULL_BASE_URL	| Public access URL	| https://passbolt.yourcompany.com
 |EMAIL_DEFAULT_FROM_NAME	| Sender name on emails	| YourCompany Passbolt
 |EMAIL_DEFAULT_FROM	| Sender email	| passbolt@yourcompany.com
